@@ -1,0 +1,32 @@
+1. system can have several domain
+2. each domain can have several dictionaries
+3. every dictionary has a search index page
+4. admin can create new search index page, and select fields from each dictionary, the selected fields can not be hidden
+5. if domain is hidden, then all dictionaries below are hidden; if a dictionary is hidden, then all fields below are hidden
+6. people using this system are one of admin, ordinary user or anonymous user without login
+7. ordinary user may belong to one or several group, for each group, the user will have one of the following roles
+	a. supervisor
+	b. annotator
+	c. subscriber
+8. a group has access to one or several dictionaries
+
+User definition:
+1. anonymous user can only read unhidden lexicons
+2. For ordinary user: (all rights are inside group)
+	a. subscriber can read lexicons, feature properties, dump search results
+	b. annotator can read and write lexicons, can read feature properties and dump search results
+	c. supervisor can read and write lexicons, feature properties, dictionary properties
+	   supervisor can dump search results, load text file into dictionary
+		 supervisor can create subscriber or annotator within group
+
+3. admin can have the following rights besides above
+	a. create domain, dictionary, group and user.
+
+Special feature for dictoinary
+1. uid (unique inside dictionary)
+2. length (should have related field)
+3. structure (should have related field)
+
+
+Synthetic Structure:
+can only stick to one base dictionary
