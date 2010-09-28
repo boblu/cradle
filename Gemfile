@@ -10,8 +10,8 @@ end
 gem 'ruby-debug19', :require => 'ruby-debug'
 
 # mongoid
-gem 'mongoid', '~>2.0.0.beta'
-gem 'bson_ext'
+gem "mongoid", "2.0.0.beta.17"
+gem "bson_ext", "1.0.4"
 
 ## devise
 gem 'devise'
@@ -21,3 +21,6 @@ gem 'mongo_ext'
 gem 'bcrypt-ruby'
 
 gem 'cancan'
+
+gem 'map_by_method'
+gem 'wirble'

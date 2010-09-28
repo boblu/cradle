@@ -1,0 +1,2 @@
+class DictionariesController < ApplicationController
+end

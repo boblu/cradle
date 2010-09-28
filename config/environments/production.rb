@@ -46,4 +46,8 @@ Cradle::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+	# required by devise
+	# TODO: need change in production mode
+	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

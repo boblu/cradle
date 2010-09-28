@@ -1,0 +1,30 @@
+<div class='container'>
+	<div class='login_form'>
+		<h1>Please create an administrator</h1>
+		<%= form_for(@user, :url => users_path, :method => :post) do |f| %>
+	  <%= error_messages_for(@user) %>
+	
+	  <label>
+	  	Username<br />
+	  	<%= f.text_field :username %>
+	  </label>
+	
+	  <label>
+	  	Email<br />
+	  	<%= f.text_field :email %>
+	  </label>
+	  
+	  <label>
+	  	Password<br />
+	  	<%= f.password_field :password %>
+	  </label>
+	  
+	  <label>
+	  	Password Confirmation<br />
+	  	<%= f.password_field :password_confirmation %>
+	  </label>
+	  
+	  <p><%= f.submit "Create" %></p>
+	<% end %>
+	</div>
+</div>

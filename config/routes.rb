@@ -1,4 +1,15 @@
 Cradle::Application.routes.draw do
+	root :to => "searches#index"
+	
+	match 'initialization', :to => 'users#initialization', :as => 'initialization'
+	
+	devise_for :users do
+	  get "/login" => "devise/sessions#new"
+		get "/logout" => "devise/sessions#destroy"
+	end
+
+	resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

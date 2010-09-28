@@ -1,0 +1,148 @@
+a {color: #4183C4; text-decoration: none;}
+a:hover {color: #4183C4; text-decoration: underline;}
+
+.middle {vertical-align:middle;}
+
+.confirming {background-color:#FFFEB2; color:#900; font-weight:bold; padding:3px;}
+.confirming #positive { padding:0 10px;}
+.confirming #positive:hover { color:#900;}
+
+input[type="text"], input[type="password"], input.text { font-size:110%; padding:2px; }
+
+.login_form{margin:3em auto 0 auto;width:450px;background-color:#eaf2f5;padding:2em 2em 1em 2em;border:20px solid #ddd;}
+.login_form h1{font-size:160%;margin-bottom:1em;}
+.login_form form label {font-size:110%;color:#666;display:block;margin:0;margin-top:1em;}
+.login_form form label input[type="text"], .login_form form label input[type="password"] {width:400px;}
+
+.flash_alert, .flash_notice {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.flash_alert {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.flash_notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
+.flash_alert a {color:#8a1f11;}
+.flash_notice a {color:#514721;}
+
+
+div.notice {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 40%;
+	border: 5px solid #ccc;
+	margin-top: 50px;
+	padding: 20px;
+	font-weight: bold;
+}
+
+#header { background-color:#E5ECF9; border-bottom:2px solid #3366CC; width:100%; min-width: 1024px;}
+#header .logo { text-align:left; padding-top:1.5em; }
+#header .logo a, .header .logo a:hover, .header .logo a:visited { color:#3366CC; text-decoration: none;}
+#header .navi { text-align:left; height:0px; margin-top:19px; }
+
+
+#header .userbox { text-align:left; height:0px; margin-top:50px; text-align:right;}
+#header .userbox ul.usernav { display:inline; margin:0; }
+#header .userbox ul.usernav li {
+	display:inline;
+	list-style-type:none;
+	margin:0;
+	padding:0 0 0 15px;
+}
+#header .userbox ul.usernav li.left_bar {
+	background:url("/images/bar_separator.gif") no-repeat scroll 5px 0 transparent;
+}
+
+#header .userbox a {
+	color:#4183C4;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#header .userbox a:hover { text-decoration: underline; }
+
+#content {padding: 5px 0;}
+#content_header_container {width:970px;margin:0 auto;display:block;background-image: url(/images/background-yellow.png);height:110px;}
+#content_header_container h3 {padding:15px 0px 0px 15px; color:#495961;}
+
+#content .content_main_container {margin-top:-70px;}
+
+#content .content_main_container .ui-tabs-panel {padding: 1em 0px; min-height:200px;}
+#content .content_main_container .ui-tabs {padding: 0.2em 0px;}
+
+.dashboard_sidebar ul {
+	display: block;
+	padding-left: 0px;
+	border-right: 1px solid #EEE;
+	width: 100%;
+}
+.dashboard_sidebar li {list-style-type: none; margin: 10px 0px}
+.dashboard_sidebar li a {
+	border: 1px solid transparent;
+	border-bottom-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px;
+	display: block;
+	padding: 8px 10px 7px;
+	text-decoration: none;
+}
+.dashboard_sidebar li a:hover {
+	background: #F1F1F1;
+	border-bottom-left-radius: 4px 4px;
+	border-top-left-radius: 4px 4px
+}
+
+.dashboard_sidebar li a.selected {
+	background: url(/images/sidebar_selected.gif) repeat-x 0px 0px;
+	border: 1px solid #DDD;
+	border-right: none;
+	color: #333;
+	font-weight: bold;
+	text-shadow: white 1px 1px 0px;
+}
+
+.dashboard_content .nav {
+	background: url(/images/subnav.gif);
+	height: 34px;
+	margin: 20px 0px;
+	text-align: left;
+}
+
+.dashboard_content .nav ul {
+	padding-top: 8px;
+	padding-left: 10px;
+}
+
+.dashboard_content .nav ul li {
+	display: inline;
+	font-size: 100%;
+	padding: 0px 10px;
+	list-style: none;
+}
+
+.dashboard_content .nav ul li a {
+	color: #333;
+}
+
+.dashboard_content .nav ul li a.active {
+	color: #C33B35;
+}
+
+
+/*
+   The error box
+*/
+#errorExplanation {
+	width: 400px;
+	border: 2px solid #DD3C10;
+	padding: 7px;
+	padding-bottom: 5px;
+	background-color: #FFEBE8;
+}
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 10px;
+	font-size: 15px;
+	margin: -7px;
+	background-color:#DD3C10;
+	color:white;
+}
+#errorExplanation p { margin-top:1em; font-size: 12px;}
+#errorExplanation ul { margin-top:1em; font-size: 12px;}
