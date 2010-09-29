@@ -1,0 +1,20 @@
+<%= error_messages_for(@domain) %>
+
+<table class='plain'>
+	<tr>
+		<td class='span-2'>Name:*</td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td>Label:*</td>
+		<td><%= f.text_field :label %></td>
+	</tr>
+	<tr>
+		<td>Hidden:</td>
+		<td><%= f.check_box :hidden %>(need login to see content)</td>
+	</tr>
+	<tr>
+		<td>Description:</td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+</table>

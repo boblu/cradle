@@ -13,10 +13,12 @@
 	  <%= stylesheet_link_tag :all, :cache => true %>
 	  <%= javascript_include_tag	'jquery-1.4.2.min',
 																'jquery.rails',
+																'jquery.jgrowl_minimized',
 																'application',
 																:cache => true %>
 
 		<%= yield(:javascript) %>
+		<%= yield(:stylesheet) %>
 	
 	  <%= csrf_meta_tag %>
 	</head>
@@ -29,7 +31,7 @@
 					<% if user_signed_in? %>
 	  				<ul class='usernav'>
 	  					<li><%= current_user.username %></li>
-							<li class='left_bar'><%= link_to "Dashboard", dashboard_path(current_user.username) %></li>
+							<li class='left_bar'><%= link_to "Dashboard", dashboard_path %></li>
 	 						<li class='left_bar'><%= link_to 'Logout', logout_path %></li>
 	 					</ul>
 	  			<% else %>
@@ -39,6 +41,7 @@
 			</div>
 		</div>
 		<%= flash_helper %>
+		<%= link_to 'test', '#', :remote => true, :confirm => true %>
 		<div id='content'>
 			<%= yield %>
 		</div>

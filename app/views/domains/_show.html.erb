@@ -1,0 +1,17 @@
+<div class='infobox'>
+	<h3>
+		<%= @domain.name %>
+		<%= link_to content_tag(:span, 'Edit'), edit_domain_path(@domain), :remote => true, :class => 'minibutton makespace-1' %>
+		<%= link_to content_tag(:span, 'Destroy'), edit_domain_path(@domain), :remote => true, :class => 'minibutton danger', :confirm => true %>
+		<%= link_to 'test', edit_domain_path(@domain), :remote => true, :confirm => true %>
+	</h3>
+	
+	<div class='body'>
+		<ul>
+			<li>Name: <%= @domain.name %></li>
+			<li>Label: <%= @domain.label %></li>
+			<li>Hidden: <%= @domain.hidden.yesno %></li>
+			<li>Description: <%= @domain.description %></li>
+		</ul>
+	</div>
+</div>

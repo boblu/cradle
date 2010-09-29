@@ -124,10 +124,32 @@ div.notice {
 	color: #C33B35;
 }
 
+table.plain tbody tr:nth-child(even) td, table.plain tbody tr.even td {background:none;}
 
-/*
-   The error box
-*/
+.infobox{border-left:1px solid #ccc;border-top:1px solid #ccc;border-right:1px solid #ccc;background-color:#f8f8ff;}
+.infobox h3{padding:.5em;border-bottom:1px solid #ccc;background-color:#eee;overflow:hidden;}
+.infobox .body{padding:0 .5em;border-bottom:1px solid #ccc;}
+.infobox .body p{margin:.5em 0;}
+.infobox .body ul{margin:.5em;list-style-type:none;}
+
+
+.minibutton{font-family:helvetica,arial,freesans,clean,sans-serif;display:inline-block;height:23px;padding:0 0 0 3px;font-size:11px;font-weight:bold;color:#333;text-shadow:1px 1px 0 #fff;background:url(/images/minibutton_matrix.png) 0 0 no-repeat;white-space:nowrap;border:none;overflow:visible;cursor:pointer;}
+.minibutton.danger{color:#900;}
+.minibutton>span{display:block;height:23px;padding:0 10px 0 8px;line-height:23px;background:url(/images/minibutton_matrix.png) 100% 0 no-repeat;}
+.minibutton:hover{color:#fff;text-decoration:none;text-shadow:-1px -1px 0 rgba(0,0,0,0.3);background-position:0 -30px;}
+.minibutton.danger:hover{background-position:0 -90px;}
+.minibutton:hover>span{background-position:100% -30px;}
+.minibutton.danger:hover>span{background-position:100% -90px;}
+.minibutton.mousedown{background-position:0 -60px;}
+.minibutton.danger.mousedown{background-position:0 -120px;}
+.minibutton.mousedown>span{background-position:100% -60px;}
+.minibutton.danger.mousedown>span{background-position:100% -120px;}
+
+.makespace-1 {margin-left:20px;}
+
+/* ================== */
+/* = form error box = */
+/* ================== */
 #errorExplanation {
 	width: 400px;
 	border: 2px solid #DD3C10;

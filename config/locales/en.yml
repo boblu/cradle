@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  errors:
+    template:
+      header:
+        one: "1 error occurred when saving this %{model}"
+        other: "%{count} errors occurred when saving this %{model}"

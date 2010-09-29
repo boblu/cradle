@@ -1,0 +1,24 @@
+<div class='container'>
+	<div class='login_form'>
+		<h1>Login</h1>
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :method => :post) do |f| %>
+		  <label>
+		  	username or email<br />
+		  	<%= f.text_field :username %>
+		  </label>
+
+		  <label>
+		  	password<br />
+		  	<%= f.password_field :password %>
+		  </label>
+
+		  <% if devise_mapping.rememberable? %>
+		  	<label>
+		  		<%= f.check_box :remember_me %> remember me
+		  	</label>
+		  <% end %>
+		
+		  <label><%= fancy_submit_button 'Log in' %></label>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<%= javascript('jquery-ui-1.8.5.custom.min.js') %>
+<%= stylesheet('jquery-ui-1.8.5.custom')%>
+
+<%= content_header('Dashboard') %>
+
+<div class='container content_main_container'>
+	<div id="tabs">
+		<ul>
+			<li><%= link_to 'Dictionary',	domains_path, :remote => true %></li>
+			<li><%= link_to 'Password',	'#', :remote => true %></li>
+		</ul>
+	</div>
+</div>

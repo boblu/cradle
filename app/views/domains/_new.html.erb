@@ -1,0 +1,7 @@
+<h3>New Domain</h3>
+<p>
+	<% form_for @domain, :remote => true do |f| %>
+		<%= render :partial => 'modification', :locals => {:f => f} %>
+		<%= fancy_submit_button 'Create' %>
+	<% end %>
+</p>

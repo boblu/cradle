@@ -1,0 +1,9 @@
+<%= render :partial => 'dashboard_sidebar' %>
+
+<div class='span-20 last dashboard_content'>
+	<% if @domain.new_record? %>
+		<%= render :partial => 'new' %>
+	<% else %>
+		<%= render :partial => 'show' %>
+	<% end %>
+</div>

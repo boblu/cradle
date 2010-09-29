@@ -8,7 +8,12 @@ Cradle::Application.routes.draw do
 		get "/logout" => "devise/sessions#destroy"
 	end
 
+	match 'dashboard', :to => 'users#show', :as => 'dashboard'
+
 	resources :users
+	resources :domains
+	
+	
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

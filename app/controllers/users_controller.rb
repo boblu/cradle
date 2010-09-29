@@ -10,15 +10,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			flash[:notice] = 'User successfully created.'
-			redirect_to root_url
+			redirect_to login_url, :flash => { :notice => 'Administrator successfully created. Please login to continue.' }
 		else
-			@user.password = @user.password_confirmation = nil
-			if User.first.blank?
-				render :initialization
-      else
-      	render :new
-      end
+			@user.clean_up_passwords
+			render (User.first.blank? ? :initialization : :new)
     end
   end
 end
