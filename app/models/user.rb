@@ -1,3 +1,4 @@
+# encoding: utf-8
 class User
   include Mongoid::Document
 
@@ -25,20 +26,20 @@ class User
 	
 	embeds_many :privileges
 	
-	validates_presence_of :username, :privileges
-	validates_uniqueness_of :username, :email, :case_sensitive => false
+	validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 	
-	before_validation :set_initial_privilege
+	before_save :set_initial_admin_privilege
 
 	# let user sign in with username or email
 	def self.find_for_database_authentication(conditions)
 	  value = conditions[authentication_keys.first]
-	  self.first(:conditions => {:username => value}) || self.first(:conditions => {:email => value})
+	  value = Regexp.new("^#{Regexp.escape(value.to_s)}$", Regexp::IGNORECASE)
+    self.where(:username => value).first || self.where(:email => value).first
 	end
 
   private
   
-	  def set_initial_privilege
+	  def set_initial_admin_privilege
 	  	if self.class.first.blank?
 	  		self.privileges << Privilege.new(:group_id => 0, :role => :admin)
 	  	end

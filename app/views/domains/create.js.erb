@@ -1,6 +1,5 @@
 <% if @domains.blank? %>
-	$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render(:partial => 'new')) %>");
+	$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render('new')) %>");
 <% else %>
-	$('#ui-tabs-1 .dashboard_sidebar').replaceWith("<%= escape_javascript(render(:partial => 'dashboard_sidebar')) %>");
-	$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render(:partial => 'show')) %>");
+	$('#ui-tabs-1').html("<%= escape_javascript(render('index')) %>");
 <% end %>

@@ -1,0 +1,5 @@
+<% dictionaries.each do |dic| %>
+	<div id="dictionary_<%= dic.id.to_s %>">
+		<%= render 'dictionaries/show', :dictionary => dic %>
+	</div>
+<% end %>

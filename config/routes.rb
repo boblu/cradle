@@ -11,8 +11,9 @@ Cradle::Application.routes.draw do
 	match 'dashboard', :to => 'users#show', :as => 'dashboard'
 
 	resources :users
-	resources :domains
-	
+	resources :domains do
+	  resources :dictionaries
+	end
 	
 
   # The priority is based upon order of creation:

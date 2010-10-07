@@ -1,0 +1,3 @@
+$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render('show')) %>");
+$("#ui-tabs-1 .dashboard_sidebar #domain_label_<%= @domain.id %>").html("<%= escape_javascript(domain_label_and_number(@domain)) %>")
+get_flash_msg();

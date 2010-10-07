@@ -1,0 +1,7 @@
+<% if @dictionaries.blank? %>
+	$('#new_dictionary').html("<%= escape_javascript(render('new')) %>");
+<% else %>
+	$('#new_dictionary').html('');
+	$('#dictionary_list').html("<%= escape_javascript(render('index', :dictionaries => @dictionaries)) %>")
+	$("#ui-tabs-1 .dashboard_sidebar #domain_label_<%= @domain.id %>_dic_num").html("<%= escape_javascript(damain_dic_display_number(@domain)) %>")
+<% end %>

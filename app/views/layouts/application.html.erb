@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>Cradle</title>
-
+		<title>Cradle</title>
+		
 		<!-- load blueprint css framework -->
 		<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection' %>
 		<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
 		<!--[if lt IE 8]>
 		<%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection' %>
 		<![endif]-->
-
-	  <%= stylesheet_link_tag :all, :cache => true %>
-	  <%= javascript_include_tag	'jquery-1.4.2.min',
-																'jquery.rails',
-																'jquery.jgrowl_minimized',
-																'application',
-																:cache => true %>
-
+		
+		<%= stylesheet_link_tag :all, :cache => true %>
+		<%= javascript_include_tag	'jquery-1.4.2.min',
+									'jquery.rails',
+									'jquery.jgrowl_minimized',
+									'jquery-ui-1.8.5.custom.min.js',
+									'application',
+									:cache => true %>
 		<%= yield(:javascript) %>
 		<%= yield(:stylesheet) %>
-	
-	  <%= csrf_meta_tag %>
+		
+		<%= csrf_meta_tag %>
 	</head>
 	<body>
 		<div id='header'>
 			<div class='container'>
 				<div class='span-4 logo'><h1><%= link_to 'Cradle', root_path %></h1></div>
-				<div class='span-14 navi'><%= render :partial => 'layouts/navigation' %></div>
+				<div class='span-14 navi'><%= render 'layouts/navigation' %></div>
 				<div class='span-6 userbox last'>
 					<% if user_signed_in? %>
-	  				<ul class='usernav'>
-	  					<li><%= current_user.username %></li>
+	  					<ul class='usernav'>
+		  					<li><%= current_user.username %></li>
 							<li class='left_bar'><%= link_to "Dashboard", dashboard_path %></li>
 	 						<li class='left_bar'><%= link_to 'Logout', logout_path %></li>
 	 					</ul>
-	  			<% else %>
-	  				<%= link_to 'Login', login_path %>
+		  			<% else %>
+		  				<%= link_to 'Login', login_path %>
 	 				<% end %>
 	 			</div>
 			</div>
 		</div>
 		<%= flash_helper %>
-		<%= link_to 'test', '#', :remote => true, :confirm => true %>
 		<div id='content'>
 			<%= yield %>
 		</div>

@@ -1,0 +1,13 @@
+<%= form_for @dictionary, :url => domain_dictionary_path(@domain, @dictionary), :method => :put, :remote => true do |f| %>
+	<%= f.hidden_field :version %>
+	<div class='infobox'>
+		<h4>
+			Edit Dictionary
+			<%= fancy_submit_button 'Update' %>
+			<%= link_to content_tag(:span, 'Cancel'), domain_dictionary_path(@domain, @dictionary), :remote => true, :class => 'minibutton' %>
+		</h4>
+		<div class='body'>
+			<%= render 'modification', :f => f %>
+		</div>
+	</div>
+<% end %>

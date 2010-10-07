@@ -1,0 +1,23 @@
+<%= render "shared/error_messages", :target => @dictionary %>
+
+<table class='plain'>
+	<tr>
+		<td class='span-2'><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :label %></td>
+		<td><%= f.text_field :label %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :hidden %></td>
+		<td>
+			<%= f.check_box :hidden, :disabled => @domain.hidden %>
+			(need login to see content.<%= " Disabled because Domain #{@domain.name} is hidden" if @domain.hidden %>)
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label :description %></td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+</table>

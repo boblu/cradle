@@ -1,8 +1,10 @@
 <div class="dashboard_sidebar span-4">
 	<ul>
 		<% @domains.each do |domain| %>
-			<li><%= link_to domain.label, domain_path(domain), :remote => true, :class => ((domain.label == @domain.label) ? 'selected' : '') %></li>
+			<li>
+				<%= link_to domain_label_and_number(domain), domain_path(domain), :remote => true, :class => ((domain.label == @domain.label) ? 'selected' : '') %>
+			</li>
 		<% end %>
-		<li><%= link_to 'Create New', new_domain_path, :remote => true, :class => (@domain.new_record? ? 'selected' : '') %></li>
+		<li><%= link_to 'New Domain', new_domain_path, :remote => true, :class => (@domain.new_record? ? 'selected' : '') %></li>
 	</ul>
 </div>

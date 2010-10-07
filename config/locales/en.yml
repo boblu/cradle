@@ -3,8 +3,5 @@
 
 en:
   hello: "Hello world"
-  errors:
-    template:
-      header:
-        one: "1 error occurred when saving this %{model}"
-        other: "%{count} errors occurred when saving this %{model}"
+  concurrent_deleted: "Action Failed! Record has been deleted by someone else. Please verify."
+  concurrent_updated: "Action Failed! Record has been updated by someone else. Please verify."

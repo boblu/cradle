@@ -1,0 +1,12 @@
+<div class='infobox'>
+	<%= form_for @dictionary, :url => domain_dictionaries_path(@domain), :remote => true do |f| %>
+		<h4>
+			New Dictionary
+			<%= fancy_submit_button 'Create' %>
+			<%= link_to content_tag(:span, 'Cancel'), "#", :class => 'minibutton remove_parent_infobox' %>
+		</h4>
+		<div class='body'>
+			<%= render 'modification', :f => f %>
+		</div>
+	<% end %>
+</div>
