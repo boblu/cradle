@@ -2,9 +2,11 @@
 	<ul>
 		<% @domains.each do |domain| %>
 			<li>
-				<%= link_to domain_label_and_number(domain), domain_path(domain), :remote => true, :class => ((domain.label == @domain.label) ? 'selected' : '') %>
+				<%= link_to content_tag(:span, domain.label, :id => "domain_label_#{domain.id}"), domain_path(domain, :tab => @tab), :remote => true, :class => ((domain.label == @domain.label) ? 'selected' : '') %>
 			</li>
 		<% end %>
-		<li><%= link_to 'New Domain', new_domain_path, :remote => true, :class => (@domain.new_record? ? 'selected' : '') %></li>
+		<% if @tab == '1' %>
+			<li><%= link_to 'New Domain', new_domain_path, :remote => true, :class => (@domain.new_record? ? 'selected' : '') %></li>
+		<% end %>
 	</ul>
 </div>

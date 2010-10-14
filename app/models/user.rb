@@ -30,6 +30,8 @@ class User
 	
 	before_save :set_initial_admin_privilege
 
+  cache
+
 	# let user sign in with username or email
 	def self.find_for_database_authentication(conditions)
 	  value = conditions[authentication_keys.first]

@@ -1,0 +1,2 @@
+$('#ui-tabs-1 .dashboard_content #dictionary_section').html("<%= escape_javascript(render('dictionaries/index', :dictionaries => @domain.dictionaries.to_a)) %>");
+get_flash_msg();

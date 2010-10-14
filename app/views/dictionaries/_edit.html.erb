@@ -7,7 +7,7 @@
 			<%= link_to content_tag(:span, 'Cancel'), domain_dictionary_path(@domain, @dictionary), :remote => true, :class => 'minibutton' %>
 		</h4>
 		<div class='body'>
-			<%= render 'modification', :f => f %>
+			<%= render 'dictionaries/modification', :f => f %>
 		</div>
 	</div>
 <% end %>

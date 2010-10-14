@@ -1,5 +1,5 @@
 <% if @domains.blank? %>
-	$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render('new')) %>");
+	$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render('domains/new')) %>");
 <% else %>
-	$('#ui-tabs-1').html("<%= escape_javascript(render('index')) %>");
+	$('#ui-tabs-1').html("<%= escape_javascript(render('domains/index')) %>");
 <% end %>

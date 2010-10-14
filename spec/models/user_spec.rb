@@ -19,8 +19,8 @@ describe User do
       user.should_not be_valid
       user.username = 'Rui'
       user.should_not be_valid
-      # user.username = '...'
-      # user.should be_valid
+      user.username = '...'
+      user.should be_valid
     end    
   end
   
@@ -41,8 +41,8 @@ describe User do
       user.should be_valid
       user.username = 'BoBlU'
       user.should be_valid
-      # user.username = '...'
-      # user.should be_valid
+      user.username = '...'
+      user.should be_valid
     end
   end
   

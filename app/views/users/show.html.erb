@@ -3,7 +3,8 @@
 <div class='container content_main_container'>
 	<div id="tabs">
 		<ul>
-			<li><%= link_to 'Dictionary',	domains_path, :remote => true %></li>
+			<li><%= link_to 'Dictionary', domains_path(:tab => '1'), :remote => true %></li>
+			<li><%= link_to 'Feature', domains_path(:tab => '2'), :remote => true %></li>
 			<li><%= link_to 'Password',	'#', :remote => true %></li>
 		</ul>
 	</div>

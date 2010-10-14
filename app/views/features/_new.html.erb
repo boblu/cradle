@@ -1,0 +1,12 @@
+<div class='infobox'>
+	<%= form_for @feature, :url => domain_dictionary_features_path(@domain, @dictionary, @feature), :remote => true do |f| %>
+		<h4>
+			New Feature
+			<%= fancy_submit_button 'Create' %>
+			<%= link_to content_tag(:span, 'Cancel'), "#", :class => 'minibutton remove_parent_infobox' %>
+		</h4>
+		<div class='body'>
+			<%= render 'features/modification', :f => f %>
+		</div>
+	<% end %>
+</div>

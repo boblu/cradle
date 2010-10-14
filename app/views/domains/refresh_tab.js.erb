@@ -1,2 +1,2 @@
-$('#ui-tabs-1').html("<%= escape_javascript(render('index')) %>");
+$('#ui-tabs-<%= @tab %>').html("<%= escape_javascript(render('domains/index')) %>");
 get_flash_msg();

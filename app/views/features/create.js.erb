@@ -1,0 +1,5 @@
+<% if @features.blank? %>
+	$('#ui-tabs-2 #new_feature').html("<%= escape_javascript(render('features/new')) %>");
+<% else %>
+	$('#ui-tabs-2 #feature_section').html("<%= escape_javascript(render('features/index', :features => @features)) %>");
+<% end %>

@@ -1,7 +1,7 @@
 <h3>Edit Domain</h3>
 <p>
 	<%= form_for @domain, :remote => true do |f| %>
-		<%= render 'modification', :f => f %>
+		<%= render 'domains/modification', :f => f %>
 		<%= f.hidden_field :version %>
 		<%= fancy_submit_button 'Update' %>
 		<%= link_to content_tag(:span, 'Cancel'), domain_path(@domain), :remote => true, :class => 'minibutton' %>

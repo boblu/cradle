@@ -1,5 +1,19 @@
-<% dictionaries.each do |dic| %>
-	<div id="dictionary_<%= dic.id.to_s %>">
-		<%= render 'dictionaries/show', :dictionary => dic %>
-	</div>
-<% end %>
+<%= flash_helper %>
+
+<div>
+	<h4>
+		Dictionary List
+		<%= "(#{dictionaries.size})" if dictionaries.present? %>
+		<%= link_to content_tag(:span, 'New Dictionary'), new_domain_dictionary_path(@domain), :remote => true, :class => 'minibutton' %>
+	</h4>
+</div>
+<div id="new_dictionary"></div>
+<div id="dictionary_list">
+	<% dictionaries.each do |dic| %>
+		<div id="dictionary_<%= dic.id.to_s %>">
+			<%= render 'dictionaries/show', :dictionary => dic %>
+		</div>
+	<% end %>
+</div>
+
+

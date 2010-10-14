@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: 79a6d19a49b33973949d6b99a903a8a6210992e1
+  revision: c919d37d500027cdffd4cdb8603bf7aac4e2929b
   specs:
     mongoid (2.0.0.beta.19)
       activemodel (~> 3.0)
-      mongo (= 1.0.9)
+      mongo (~> 1.1)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
 
@@ -70,7 +70,7 @@ GEM
       treetop (>= 1.4.5)
     map_by_method (0.8.3)
     mime-types (1.16)
-    mongo (1.0.9)
+    mongo (1.1)
       bson (>= 1.0.5)
     mongo_ext (0.19.3)
     net-scp (1.0.4)

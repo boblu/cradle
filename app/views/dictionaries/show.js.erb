@@ -1,1 +1,2 @@
-$("#ui-tabs-1 .dashboard_content #dictionary_<%= @dictionary.id.to_s %>").html("<%= escape_javascript(render('show', :dictionary => @dictionary)) %>");
+$("#ui-tabs-1 #dictionary_<%= @dictionary.id.to_s %>").html("<%= escape_javascript(render('dictionaries/show', :dictionary => @dictionary)) %>");
+get_flash_msg();

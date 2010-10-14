@@ -1,7 +1,5 @@
 <% if @dictionaries.blank? %>
-	$('#new_dictionary').html("<%= escape_javascript(render('new')) %>");
+	$('#ui-tabs-1 #new_dictionary').html("<%= escape_javascript(render('dictionaries/new')) %>");
 <% else %>
-	$('#new_dictionary').html('');
-	$('#dictionary_list').html("<%= escape_javascript(render('index', :dictionaries => @dictionaries)) %>")
-	$("#ui-tabs-1 .dashboard_sidebar #domain_label_<%= @domain.id %>_dic_num").html("<%= escape_javascript(damain_dic_display_number(@domain)) %>")
+	$('#ui-tabs-1 #dictionary_section').html("<%= escape_javascript(render('dictionaries/index', :dictionaries => @dictionaries)) %>");
 <% end %>

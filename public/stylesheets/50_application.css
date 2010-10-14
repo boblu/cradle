@@ -132,9 +132,15 @@ table.plain tbody tr:nth-child(even) td, table.plain tbody tr.even td {backgroun
 
 .infobox{border-left:1px solid #ccc;border-top:1px solid #ccc;border-right:1px solid #ccc;background-color:#f8f8ff;margin-bottom:1em;}
 .infobox h4{padding:.5em;border-bottom:1px solid #ccc;background-color:#eee;overflow:hidden;margin-bottom:0px;}
+.infobox h4 .right{margin:0px;}
 .infobox .body{padding:0 .5em;border-bottom:1px solid #ccc;}
 .infobox .body p{margin:.5em 0;}
 .infobox .body ul{margin:.5em;list-style-type:none;}
+
+table.invisible {margin-bottom:0px;}
+table.invisible th {text-align:right;font-weight:normal;}
+table.invisible td {text-align:left;padding:0px;vertical-align: middle;}
+table.invisible tbody tr:nth-child(even) td, table.plain tbody tr.even td {background:none;}
 
 
 .minibutton{font-family:helvetica,arial,freesans,clean,sans-serif;display:inline-block;height:23px;padding:0 0 0 3px;font-size:11px;font-weight:bold;color:#333;text-shadow:1px 1px 0 #fff;background:url(/images/minibutton_matrix.png) 0 0 no-repeat;white-space:nowrap;border:none;overflow:visible;cursor:pointer;}
@@ -152,7 +158,13 @@ button.minibutton {font-family:helvetica,arial,freesans,clean,sans-serif;font-si
 
 .makespace-1 {margin-left:20px;}
 
+table.listing_table {border-collapse:separate;border-spacing:1px; background-color:#AAA; margin-bottom:0px; }
+table.listing_table caption { font-size:larger; font-weight:bold; padding-right:20px; }
+table.listing_table th { background-color:SteelBlue; color:white; font-weight:bold; }
+table.listing_table td, table.listing_table tr:nth-child(even) td { background-color:white; }
+table.listing_table td.selected {background-color: #F2F2F2;}
 
+.small_text_field {width:100px;}
 
 /* ================== */
 /* = form error box = */
@@ -174,6 +186,24 @@ button.minibutton {font-family:helvetica,arial,freesans,clean,sans-serif;font-si
 	color:white;
 }
 #errorExplanation p { margin-top:1em; font-size: 12px;}
-#errorExplanation ul { margin-top:1em; font-size: 12px;}
+#errorExplanation ul { margin-top:1em; font-size: 12px;list-style-type: disc;}
 .field_with_errors label {color:#DD3C10;}
-.field_with_errors input {border: 1px solid #DD3C10;}
+.field_with_errors input, .field_with_errors select {border: 1px solid #DD3C10;}
+
+/* ====================== */
+/* = css for timepicker = */
+/* ====================== */
+#ui-datepicker-div th {background:none;}
+#ui-datepicker-div tbody tr:nth-child(even) td, tbody tr.even td {background:none;}
+#ui-datepicker-div.ui-widget-content {border:1px solid #AAA;}
+#ui-datepicker-div .ui-widget-content {border:1px solid #AAA;}
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div .ui_tpicker_hour div { padding-right: 2px; }
+.ui-timepicker-div .ui_tpicker_minute div { padding-right: 6px; }
+.ui-timepicker-div .ui_tpicker_second div { padding-right: 6px; }
+.ui-timepicker-div td { font-size: 90%; }
+

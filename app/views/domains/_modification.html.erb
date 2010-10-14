@@ -11,7 +11,14 @@
 	</tr>
 	<tr>
 		<td><%= f.label :hidden %></td>
-		<td><%= f.check_box :hidden %>(need login to see content, this will change all below dictionaries' visibility)</td>
+		<td>
+			<%= f.check_box :hidden %>
+			<% if f.object.hidden %>
+				(Uncheck this <%= content_tag(:strong, 'will not change', :style => 'color:red;') %> included dictionaries or features' visibility.)
+			<% else %>
+				(Check this <%= content_tag(:strong, 'will change', :style => 'color:red;') %> all included dictionaries and features to hidden.)
+			<% end %>
+		</td>
 	</tr>
 	<tr>
 		<td><%= f.label :description %></td>

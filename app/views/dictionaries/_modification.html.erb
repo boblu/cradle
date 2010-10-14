@@ -13,7 +13,15 @@
 		<td><%= f.label :hidden %></td>
 		<td>
 			<%= f.check_box :hidden, :disabled => @domain.hidden %>
-			(need login to see content.<%= " Disabled because Domain #{@domain.name} is hidden" if @domain.hidden %>)
+			<% if @domain.hidden %>
+				(Disabled because Domain '<%= @domain.name %>' is hidden.)
+			<% else %>
+				<% if f.object.hidden %>
+					(Uncheck this <%= content_tag(:strong, 'will not change', :style => 'color:red;') %> included features' visibility.)
+				<% else %>
+					(Check this <%= content_tag(:strong, 'will change', :style => 'color:red;') %> all included features to hidden.)
+				<% end %>
+			<% end %>
 		</td>
 	</tr>
 	<tr>

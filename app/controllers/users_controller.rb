@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	def initialization
 		if User.first.blank?
 			@user = User.new
+			Preference.create if Preference.first.blank?
 	  else
 			redirect_to root_url
 	  end

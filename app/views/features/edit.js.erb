@@ -1,0 +1,3 @@
+$("#ui-tabs-2 #feature_<%= @feature.id %>").html("<%= escape_javascript(render('features/edit')) %>");
+$("#datepicker").datepicker({changeMonth: true, changeYear: true, dateFormat: 'yy-mm-dd', showButtonPanel: true});
+$('#datetimepicker').datetimepicker({showSecond: true, dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm:ss'});

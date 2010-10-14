@@ -11,8 +11,11 @@ Cradle::Application.routes.draw do
 	match 'dashboard', :to => 'users#show', :as => 'dashboard'
 
 	resources :users
+
 	resources :domains do
-	  resources :dictionaries
+	  resources :dictionaries do
+	    resources :features
+    end
 	end
 	
 

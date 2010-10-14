@@ -37,4 +37,28 @@ module ApplicationHelper
 		button_content << confirming
 		content_tag(:span, button_content, :class => 'destroy_button')
 	end
+	
+	# ============
+	# = options: =
+	# collection, columns, cell_class, cell_style, caption, first_cell_class
+	# ============
+	def table_for_listing(options, &block)
+	  raise ArgumentError, "Missing block" unless block_given?
+	  if (collection_size = options[:collection].size) == 0 then ''
+    else
+	  	options[:columns] ||= 4
+	  	options[:cell_class] ||= 'span-5'
+      rows = []
+      quo, mod = collection_size.divmod(options[:columns])
+      1.upto((mod == 0) ? quo*options[:columns] : (quo + 1)*options[:columns]) do |index|
+        item = (options[:collection][index-1].blank? ? '' : capture(options[:collection][index-1], &block))
+        rows << [] if ((index - 1) % options[:columns] == 0)
+        td_class = ((index == 1) ? "#{options[:cell_class]} #{options[:first_cell_class]}" : options[:cell_class])
+        rows.last << content_tag(:td, item, :class => td_class, :style => options[:cell_style])
+      end
+      content_tag(:table, :class => 'listing_table') do
+        content_tag(:tr, rows.map{|r| r.join('')}.join('</tr><tr>').html_safe)
+      end
+    end
+  end
 end

@@ -18,7 +18,7 @@ $(function() {
 		$(this).parent().hide().prev().show();
 		return false;
 	});
-
+	
 	// =============
 	// = dashboard =
 	// =============
@@ -38,6 +38,13 @@ $(function() {
 	$('.remove_parent_infobox').live('click', function () {
 		$(this).parents('div.infobox').remove();
 		return false;
+	});
+	
+	
+	
+	$('#dictionary_section table.listing_table td .anchor').live('click', function () {
+		$(this).parent().siblings().removeClass('selected');
+		$(this).parent().addClass('selected');
 	});
 });
 

@@ -1,5 +1,15 @@
-<%= render 'dashboard_sidebar' %>
+<%= render 'domains/dashboard_sidebar' %>
 
 <div class='span-20 last dashboard_content'>
-	<%= render (@domain.new_record? ? 'new' : 'show') %>
+	<% case @tab
+	when '1' %>
+		<%= render (@domain.new_record? ? 'domains/new' : 'domains/show') %>
+	<% when '2' %>
+		<% if @domains.size == 0 %>
+			<%= flash_helper %>
+			Please first create domain and dictionary.
+		<% else %>
+			<%= render 'domains/show' %>
+		<% end %>
+	<% end %>
 </div>

@@ -1,41 +1,48 @@
 <%= flash_helper %>
 
-<div class='infobox'>
-	<h4>
-		<%= @domain.name %>
-		<%= link_to content_tag(:span, 'Edit'), edit_domain_path(@domain), :remote => true, :class => 'minibutton makespace-1' %>
-		<%= fancy_destroy_button(domain_path(@domain, :version => @domain.version), 'All below dictionaries will be deleted too. Are you sure?', true) %>
-	</h4>
+<% if defined?(@dictionaries) %>
+	<% if @dictionaries.size == 0 %>
+		Please first create dictionary.
+	<% else %>
+		<div id='dictionary_section' class='span-20 last append-bottom'>
+			<h4>Dictionary List</h4>
+			<%= table_for_listing(:collection => @dictionaries, :caption => 'Dictionaries', :first_cell_class => 'selected') do |dic| %>
+				<%= link_to dic.name, domain_dictionary_features_path(@domain, dic), :remote => true, :class => "anchor" %>
+			<% end %>
+		</div>
+		<div id='feature_section' class='span-20 last'>
+			<%= render 'features/index', :features => @dictionary.features.to_a %>
+		</div>
+	<% end %>
+<% else %>
+	<div class='infobox'>
+		<h4>
+			<%= @domain.name %>
+			<%= link_to content_tag(:span, 'Edit'), edit_domain_path(@domain), :remote => true, :class => 'minibutton makespace-1' %>
+			<%= fancy_destroy_button(domain_path(@domain, :version => @domain.version), 'All included dictionaries will be deleted too. Are you sure?', true) %>
+		</h4>
 	
-	<div class='body'>
-		<table class='plain'>
-			<tr>
-				<th class='span-3'>Name:</th>
-				<td class='span-7'><%= @domain.name %></td>
-				<th class='span-3'>Label:</th>
-				<td class='span-7'><%= @domain.label %></td>
-			</tr>
-			<tr>
-				<th>Hidden:</th>
-				<td><%= @domain.hidden.yesno %></td>
-				<th>Last Update:</th>
-				<td><%= last_update_msg(@domain) %></td>
-			</tr>
-			<tr>
-				<th>Description:</th>
-				<td colspan="3"><%= @domain.description %></td>
-			</tr>
-		</table>
+		<div class='body'>
+			<table class='plain'>
+				<tr>
+					<th class='span-3'>Label:</th>
+					<td class='span-7'><%= @domain.label %></td>
+					<th class='span-3'>Hidden:</th>
+					<td class='span-7'><%= @domain.hidden.yesno %></td>
+				</tr>
+				<tr>
+					<th>Last Update:</th>
+					<td colspan="3"><%= last_update_msg(@domain) %></td>
+				</tr>
+				<tr>
+					<th>Description:</th>
+					<td colspan="3"><%= @domain.description %></td>
+				</tr>
+			</table>
+		</div>
 	</div>
-</div>
 
-<div>
-	<h4>
-		Dictionary List
-		<%= link_to content_tag(:span, 'New Dictionary'), new_domain_dictionary_path(@domain), :remote => true, :class => 'minibutton' %>
-	</h4>
-</div>
-<div id="new_dictionary"></div>
-<div id="dictionary_list">
-	<%= render 'dictionaries/index', :dictionaries => @domain.dictionaries %>
-</div>
+	<div id='dictionary_section'>
+		<%= render 'dictionaries/index', :dictionaries => @domain.dictionaries.to_a %>
+	</div>
+<% end %>

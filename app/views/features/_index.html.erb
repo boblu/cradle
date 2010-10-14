@@ -1,0 +1,17 @@
+<%= flash_helper %>
+
+<h4>
+	<%= @dictionary.name %> Feature List
+	<%= "(#{features.size})" if features.present? %>
+	<%= link_to content_tag(:span, 'New Feature'), new_domain_dictionary_feature_path(@domain, @dictionary), :remote => true, :class => 'minibutton' %>
+</h4>
+
+<div id="new_feature"></div>
+
+<div id="feature_list">
+	<% features.each do |feature| %>
+		<div id="feature_<%= feature.id.to_s %>">
+			<%= render 'features/show', :feature => feature %>
+		</div>
+	<% end %>
+</div>

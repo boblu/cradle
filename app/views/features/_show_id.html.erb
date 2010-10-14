@@ -1,0 +1,16 @@
+<table class='plain'>
+	<tr>
+		<th class='span-3'>Type:</th>
+		<td class='span-7'><%= show_type_with_related_info(feature) %></td>
+		<th class='span-3'>Hidden:</th>
+		<td class='span-7'><%= feature.hidden.yesno %></td>
+	</tr>
+	<tr>
+		<th>Last Update:</th>
+		<td colspan=3><%= last_update_msg(feature) %></td>
+	</tr>
+	<tr>
+		<th>Description:</th>
+		<td colspan=3><%= feature.description %></td>
+	</tr>
+</table>

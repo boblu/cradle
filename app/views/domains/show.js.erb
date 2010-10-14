@@ -1,2 +1,4 @@
-$('#ui-tabs-1 .dashboard_content').html("<%= escape_javascript(render('show')) %>");
+<% @tab = (@tab.presence || '1') %>
+$('#ui-tabs-<%= @tab %> .dashboard_content').html("<%= escape_javascript(render('domains/show')) %>");
+$("#ui-tabs-<%= @tab %> .dashboard_sidebar #domain_label_<%= @domain.id %>").html("<%= escape_javascript(@domain.label) %>");
 get_flash_msg();

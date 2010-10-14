@@ -1,0 +1,20 @@
+<%= flash_helper %>
+
+<div class='infobox'>
+	<h4>
+		<%= feature.name %>
+		<%= link_to content_tag(:span, 'Edit'), edit_domain_dictionary_feature_path(@domain, @dictionary, feature), :remote => true, :class => 'minibutton makespace-1' %>
+		<%= fancy_destroy_button(domain_dictionary_feature_path(@domain, @dictionary, feature, :version => feature.version), 'All relating infor contained in lexicon will be deleted too. Are you sure?', true) %>
+		<%= content_tag(:span, 'Key', :class => 'right') if feature.key_field %>
+	</h4>
+	<div class='body'>
+		<% case feature.type
+		when 'Id' %>
+			<%= render "features/show_id", :feature => feature %>
+		<% when 'CharNum' %>
+			<%= render "features/show_char_num", :feature => feature %>
+		<% else %>
+			<%= render "features/show_normal", :feature => feature %>
+		<% end %>
+	</div>
+</div>

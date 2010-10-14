@@ -1,0 +1,102 @@
+<%= render "shared/error_messages", :target => @feature %>
+
+<table class='plain'>
+	<tr>
+		<td class='span-3'><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<% if f.object.new_record? or %w[Id CharNum].exclude?(f.object.type) %>
+		<tr>
+			<td><%= f.label :key_field %></td>
+			<td>
+				<table class='invisible'>
+					<tr>
+						<td class='span-1'><%= f.check_box :key_field %></td>
+						<td>(check this if you want to use this field to verify lexicon uniqueness inside dictionary.)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	<% end %>
+	<% if f.object.new_record? %>
+		<tr>
+			<td><%= f.label :type %></td>
+			<td id='listing_feature_types'>
+				<table class='invisible'>
+					<tr>
+						<td class='span-1'>
+							<%= f.radio_button :special_type, nil, :checked => Feature::SpecialTypes.exclude?(f.object.special_type) %>
+						</td>
+						<td class='span-4'>
+							<%= f.select :type, Feature::NormalTypes %>
+						</td>
+						<td class='span-1'><%= f.radio_button :special_type, 'CharNum' %></td>
+						<td class='span-3'>CharNum ------</td>
+						<td class='span-2'><%= f.label :target %></td>
+						<td><%= f.collection_select(:target, @dictionary.features.to_a, :id, :name) %></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	<% else %>
+		<tr>
+			<td><%= f.label :type %></td>
+			<td><%= f.object.type %></td>
+		</tr>
+		<% case f.object.type
+		when 'Category' %>
+			<tr>
+				<td><%= f.label :seperator %></td>
+				<td><%= f.text_field :seperator, :class => 'small_text_field' %></td>
+			</tr>
+		<% when 'CharNum' %>
+			<tr>
+				<td><%= f.label :target %></td>
+				<td><%= f.object.target_feature.name %></td>
+			</tr>
+		<% when 'String', 'Integer', 'Float' %>
+			<tr>
+				<td><%= f.label :default_value %></td>
+				<td><%= f.text_field :default_value %></td>
+			</tr>
+		<% when 'Boolean' %>
+			<tr>
+				<td><%= f.label :default_value %></td>
+				<td>
+					<%= f.radio_button :default_value, '' %>None
+					<%= f.radio_button :default_value, true %>True
+					<%= f.radio_button :default_value, false %>False
+				</td>
+			</tr>
+		<% when 'Date' %>
+			<tr>
+				<td><%= f.label :default_value %></td>
+				<td><%= f.text_field :default_value, :id => 'datepicker' %></td>
+			</tr>
+		<% when 'Time' %>
+			<tr>
+				<td><%= f.label :default_value %></td>
+				<td><%= f.text_field :default_value, :id => 'datetimepicker' %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	<tr>
+		<td><%= f.label :hidden %></td>
+		<td>
+			<table class='invisible'>
+				<tr>
+					<td class='span-1'><%= f.check_box :hidden, :disabled => @dictionary.hidden %></td>
+					<td>
+						<% if @dictionary.hidden %>
+							(Disabled because Dictionary '<%= @dictionary.name %>' is hidden.)
+						<% end %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label :description %></td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+</table>
